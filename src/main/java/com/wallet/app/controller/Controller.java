@@ -42,13 +42,13 @@ public class Controller {
         walletService.addFundsToWallet(1, 300.0);
 
         //Withdraw funds
-        
+        walletService.withdrawFunds(1, 300.0);
 
-//
 //        //Transfer funds
-//        walletService.fundTransfer(1, 2, 300.0);
+        walletService.fundTransfer(1, 2, 300.0);
 
-
+        //Unregister
+        walletService.unRegisterWallet(1, "haha");
     }
 
 }

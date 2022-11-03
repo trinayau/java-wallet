@@ -82,15 +82,43 @@ public class WalletDaoImpl implements WalletDao {
 		return null;
 	}
 
+	@Override
+	public Wallet withdrawFunds(Integer walletId, double newBalance) throws WalletException {
+		String sql = "UPDATE wallet set balance = ? WHERE id = ?";
+		try{
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setDouble(1, newBalance);
+			stmt.setInt(2, walletId);
+			Integer count = stmt.executeUpdate();
+			if(count == 1)
+				System.out.println("Funds successfully withdrawn from wallet " + walletId + ". Current balance: £" + newBalance);
+			else
+				System.out.println("Funds could not be withdrawn from this wallet id: " + walletId);
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		return null;
+	}
+
+
 	public Wallet updateWallet(Wallet updateWallet) throws WalletException {
 		// TODO Auto-generated method stub
 
 		return null;
 	}
 
+
+
 	public Wallet deleteWalletById(Integer walletID) throws WalletException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void transferFunds(Integer fromId, Integer toId, Double amount) {
+
 	}
 
 }
