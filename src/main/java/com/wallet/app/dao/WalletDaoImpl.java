@@ -22,7 +22,6 @@ public class WalletDaoImpl implements WalletDao {
 
 	public Wallet addWallet(Wallet newWallet) throws WalletException {
 
-//		 this.wallets.put(newWallet.getId(), newWallet);
 		String sql = "INSERT INTO wallet (id, name, balance, password) VALUES(?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);

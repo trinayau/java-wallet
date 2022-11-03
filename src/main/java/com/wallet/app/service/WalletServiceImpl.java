@@ -24,7 +24,7 @@ public class WalletServiceImpl implements WalletService {
 
 		Wallet foundWallet = this.walletRepository.getWalletById(walletId);
 		if(foundWallet.getPassword().equals(password)){
-			System.out.println("You have logged in: " + foundWallet);
+			System.out.println("You have logged in successfully: " + foundWallet);
 			return true;
 		} else {
 			return false;
@@ -33,6 +33,7 @@ public class WalletServiceImpl implements WalletService {
 
 	public Double addFundsToWallet(Integer walletId, Double amount) throws WalletException {
 		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -43,6 +44,11 @@ public class WalletServiceImpl implements WalletService {
 
 	public Boolean fundTransfer(Integer fromId, Integer toId, Double amount) throws WalletException {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Double withdrawFunds(Integer WalletID, Double amount) throws WalletException {
 		return null;
 	}
 

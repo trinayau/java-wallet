@@ -10,7 +10,6 @@ public class WalletUtility {
         try {
             connection = DriverManager
                     .getConnection("jdbc:mysql://127.0.0.1:3306/ford_schema?" + "user=root&password=Elyonn2022!");
-            System.out.println("Connection to MYSQL successful!");
             Statement stmt = connection.createStatement();
 
             stmt.executeUpdate("DROP TABLE IF EXISTS wallet");
@@ -23,7 +22,7 @@ public class WalletUtility {
                     " PRIMARY KEY ( id ))";
 
             stmt.executeUpdate(sql);
-            System.out.println("Created wallet table");
+            System.out.println("Connection to MYSQL successful!");
 
         } catch (SQLException e) {
             System.out.println("Error connecting to MySQL DB, please try again: " + e);

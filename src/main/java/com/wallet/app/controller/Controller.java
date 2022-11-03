@@ -23,6 +23,7 @@ public class Controller {
 //
 //            Wallet wallet = walletService.registerWallet(new Wallet(newName, newBalance, newPassword));
             Wallet wallet2 = walletService.registerWallet(new Wallet("ford", 300.0, "lol"));
+            Wallet wallet3 = walletService.registerWallet(new Wallet("mustang", 3000.0, "gta"));
 //            System.out.println(wallet);
             System.out.println(wallet2);
         } catch (WalletException e) {
@@ -32,7 +33,14 @@ public class Controller {
         //Login
         System.out.println(walletService.login(1, "lol"));
 
+        //Show wallet balance
+        walletService.showWalletBalance(1);
+
         //Add funds
+        System.out.println(walletService.addFundsToWallet(1, 300.0));
+
+        //Transfer funds
+        walletService.fundTransfer(1, 2, 300.0);
 
 
     }
