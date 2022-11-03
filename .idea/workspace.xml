@@ -7,9 +7,8 @@
     <list default="true" id="9649aa13-c288-43ef-874e-11b1c9d4f638" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wallet/app/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallet/app/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallet/app/dao/WalletDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallet/app/dao/WalletDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wallet/app/dao/WalletDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallet/app/dao/WalletDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallet/app/dao/WalletUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallet/app/dao/WalletUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallet/app/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallet/app/service/WalletService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wallet/app/service/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallet/app/service/WalletServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

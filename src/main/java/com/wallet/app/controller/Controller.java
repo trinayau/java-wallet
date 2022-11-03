@@ -30,17 +30,23 @@ public class Controller {
             System.out.println("Failed to create wallet: " + e);
         }
 
-        //Login
-        System.out.println(walletService.login(1, "lol"));
+        //Login - complete
+        walletService.login(1, "haha"); //wrong password
+        walletService.login(5, "lol"); //wrong id
+        walletService.login(1, "lol"); //correct
 
         //Show wallet balance
-        walletService.showWalletBalance(1);
+        System.out.println(walletService.showWalletBalance(1));
+//
+//       //Add funds
+        walletService.addFundsToWallet(1, 300.0);
 
-        //Add funds
-        System.out.println(walletService.addFundsToWallet(1, 300.0));
+        //Withdraw funds
+        
 
-        //Transfer funds
-        walletService.fundTransfer(1, 2, 300.0);
+//
+//        //Transfer funds
+//        walletService.fundTransfer(1, 2, 300.0);
 
 
     }

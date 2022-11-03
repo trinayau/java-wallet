@@ -20,26 +20,32 @@ public class WalletServiceImpl implements WalletService {
 	}
 
 	public Boolean login(Integer walletId, String password) throws WalletException {
-		// TODO Auto-generated method stub
 
 		Wallet foundWallet = this.walletRepository.getWalletById(walletId);
-		if(foundWallet.getPassword().equals(password)){
+		Boolean loggedIn = false;
+		if(foundWallet != null && foundWallet.getPassword().equals(password)){
 			System.out.println("You have logged in successfully: " + foundWallet);
-			return true;
-		} else {
-			return false;
+			loggedIn = true;
+		} else if(foundWallet != null && !foundWallet.getPassword().equals(password)){
+			System.out.println("Password is incorrect for wallet with id " + walletId + ", please check password and try again.");
+		} else if(foundWallet == null){
+			System.out.println("Wallet with id " + walletId + " could not be found. Please enter a valid wallet id.");
 		}
+		return loggedIn;
 	}
 
 	public Double addFundsToWallet(Integer walletId, Double amount) throws WalletException {
-		// TODO Auto-generated method stub
+		Wallet foundWallet = this.walletRepository.getWalletById(walletId);
+		Double newBalance = foundWallet.getBalance() + amount;
+		this.walletRepository.addFunds(foundWallet.getId(), newBalance);
 
 		return null;
 	}
 
 	public Double showWalletBalance(Integer walletId) throws WalletException {
 		// TODO Auto-generated method stub
-		return null;
+		Wallet foundWallet = this.walletRepository.getWalletById(walletId);
+		return foundWallet.getBalance();
 	}
 
 	public Boolean fundTransfer(Integer fromId, Integer toId, Double amount) throws WalletException {

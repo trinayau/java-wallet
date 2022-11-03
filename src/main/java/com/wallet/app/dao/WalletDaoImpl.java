@@ -52,7 +52,6 @@ public class WalletDaoImpl implements WalletDao {
 			if (resultSet.next()) {
 				// if wallet exists for given id
 
-				// Employee(resultSet.getInt(1),resultSet.getString(2),resultSet.getDouble(3));
 				newWallet = new Wallet(resultSet.getInt("id"), resultSet.getString("name"),
 						resultSet.getDouble("balance"), resultSet.getString("password"));
 
@@ -64,8 +63,28 @@ public class WalletDaoImpl implements WalletDao {
 		return newWallet;
 	}
 
+	@Override
+	public Wallet addFunds(Integer walletId, Double amount) throws WalletException {
+		String sql = "UPDATE wallet set balance = ? WHERE id = ?";
+		try{
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setDouble(1, amount);
+			stmt.setInt(2, walletId);
+			Integer count = stmt.executeUpdate();
+			if(count == 1)
+				System.out.println("Funds successfully added to wallet " + walletId + ". Current balance: £" + amount);
+			else
+				System.out.println("Funds could not be added to this wallet id: " + walletId);
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+
 	public Wallet updateWallet(Wallet updateWallet) throws WalletException {
 		// TODO Auto-generated method stub
+
 		return null;
 	}
 
