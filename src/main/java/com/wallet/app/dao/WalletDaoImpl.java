@@ -111,14 +111,23 @@ public class WalletDaoImpl implements WalletDao {
 
 
 
-	public Wallet deleteWalletById(Integer walletID) throws WalletException {
-		// TODO Auto-generated method stub
+	public Wallet deleteWalletById(Integer walletId) throws WalletException {
+		String sql = "DELETE FROM wallet WHERE id = ?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, walletId);
+			Integer count = preparedStatement.executeUpdate();
+
+			if (count == 1) {
+				System.out.println("Wallet deleted successfully with id:" + walletId);
+			} else
+				System.out.println("Wallet could not be deleted with id:" + walletId);
+
+		} catch (SQLException e) {
+			System.out.println("Could not delete this wallet with id: " + walletId + e);
+		}
 		return null;
 	}
 
-	@Override
-	public void transferFunds(Integer fromId, Integer toId, Double amount) {
-
-	}
 
 }

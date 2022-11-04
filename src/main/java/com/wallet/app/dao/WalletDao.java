@@ -13,5 +13,4 @@ public interface WalletDao {
 	Wallet updateWallet(Wallet updateWallet)throws WalletException;
 	Wallet deleteWalletById(Integer walletID)throws WalletException;
 
-	void transferFunds(Integer fromId, Integer toId, Double amount);
 }

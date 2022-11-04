@@ -48,7 +48,7 @@ public class Controller {
         walletService.fundTransfer(1, 2, 300.0);
 
         //Unregister
-        walletService.unRegisterWallet(1, "haha");
+        walletService.unRegisterWallet(1, "lol");
     }
 
 }

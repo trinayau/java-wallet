@@ -88,13 +88,23 @@ public class WalletServiceImpl implements WalletService {
 		return null;
 	}
 
-	public Wallet unRegisterWallet(Integer walletId, String password) throws WalletException {
+	public Boolean unRegisterWallet(Integer walletId, String password) throws WalletException {
 		// TODO Auto-generated method stub
+		Boolean success = false;
 		//Check wallet exists and password is correct
-		
+		Wallet foundWallet = this.walletRepository.getWalletById(walletId);
+		Boolean validated = false;
+		if(!foundWallet.equals(null) && foundWallet.getPassword().equals(password)){
+			validated = true;
+		} else {
+			System.out.println("Please check wallet ID and password are correct.");
+		}
+		if(validated){
+			this.walletRepository.deleteWalletById(walletId);
+			success = true;
+		}
 
-
-		return null;
+		return success;
 	}
 
 }
